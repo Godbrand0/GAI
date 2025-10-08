@@ -31,15 +31,10 @@ const HowItWorks = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
           {steps.map((step, index) => {
-            const gradients = [
-              "bg-gradient-primary",
-              "bg-gradient-to-br from-accent-red to-accent-yellow",
-              "bg-gradient-secondary"
-            ];
             return (
               <div key={step.number} className="relative">
-                <div className="text-center space-y-4 animate-fade-up" style={{ animationDelay: `${index * 100}ms` }}>
-                  <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full ${gradients[index]} text-primary-foreground font-bold text-2xl mb-4 shadow-glow`}>
+                <div className="text-center space-y-4 ">
+                  <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full  text-primary-foreground font-bold text-2xl mb-4 shadow-glow`}>
                     {step.number}
                   </div>
                   <h3 className="text-2xl font-bold">{step.title}</h3>
@@ -48,7 +43,7 @@ const HowItWorks = () => {
                 
                 {index < steps.length - 1 && (
                   <div className="hidden md:block absolute top-10 -right-4 text-primary">
-                    <ArrowRight className="w-8 h-8 animate-float" />
+                    <ArrowRight className="w-8 h-8" />
                   </div>
                 )}
               </div>

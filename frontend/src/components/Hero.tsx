@@ -19,7 +19,7 @@ const Hero = () => {
           
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
             Welcome to{" "}
-            <span className="bg-gradient-multicolor bg-clip-text text-transparent animate-float">
+            <span className=" animate-float">
               GAI
             </span>
           </h1>
@@ -35,9 +35,9 @@ const Hero = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <Button 
-              variant="google" 
+               
               size="lg"
-              className="text-lg px-8 py-6 shadow-glow-multicolor"
+              className="text-lg px-8 py-6"
               onClick={() => window.location.href = "/chat"}
             >
               <MessageSquare className="w-5 h-5" />
