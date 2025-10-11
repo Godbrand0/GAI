@@ -57,18 +57,18 @@ const Hero = () => {
           
           <div className="pt-12 grid grid-cols-2 sm:grid-cols-5 gap-4 max-w-4xl mx-auto">
             {[
-              { name: "English", flag: "🇬🇧" },
-              { name: "Pidgin", flag: "🗣️" },
-              { name: "Yoruba", flag: "🇳🇬" },
-              { name: "Igbo", flag: "🇳🇬" },
-              { name: "Hausa", flag: "🇳🇬" }
+              { name: "English"},
+              { name: "Pidgin"},
+              { name: "Yoruba" },
+              { name: "Igbo" },
+              { name: "Hausa"}
             ].map((lang, index) => (
               <div 
                 key={lang.name}
                 className="flex flex-col items-center gap-2 p-4 rounded-lg bg-card border border-border hover:border-primary transition-all duration-300 hover:shadow-soft animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <span className="text-4xl">{lang.flag}</span>
+               
                 <span className="text-sm font-medium">{lang.name}</span>
               </div>
             ))}
