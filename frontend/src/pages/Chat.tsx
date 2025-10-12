@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -8,14 +7,13 @@ const Chat = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-gradient-hero">
       <div className="max-w-2xl w-full text-center space-y-6">
-        <Button
-          variant="ghost"
+        <button
           onClick={() => navigate("/")}
-          className="mb-8"
+          className="inline-flex items-center justify-center gap-2 rounded-md bg-transparent hover:bg-accent hover:text-accent-foreground px-4 py-2 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Home
-        </Button>
+        </button>
         
         <h1 className="text-4xl sm:text-5xl font-bold">
           <span className="bg-gradient-multicolor bg-clip-text text-transparent">GAI</span> Chatbox
