@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { MessageSquare, Github } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
@@ -34,25 +33,21 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button 
-               
-              size="lg"
-              className="text-lg px-8 py-6"
+            <button
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-3 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               onClick={() => window.location.href = "/chat"}
             >
               <MessageSquare className="w-5 h-5" />
               Try Chatbox
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="text-lg px-8 py-6 border-2 hover:border-primary hover:bg-primary/5"
+            </button>
+
+            <button
+              className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-input bg-background text-lg px-8 py-3 font-medium hover:border-primary hover:bg-accent hover:text-accent-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               onClick={() => window.open("https://github.com/yourusername/gai", "_blank")}
             >
               <Github className="w-5 h-5" />
               View GitHub
-            </Button>
+            </button>
           </div>
           
           <div className="pt-12 grid grid-cols-2 sm:grid-cols-5 gap-4 max-w-4xl mx-auto">

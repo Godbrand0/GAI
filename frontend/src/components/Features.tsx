@@ -1,5 +1,4 @@
 import { Languages, Zap, Shield, Sparkles } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const features = [
   {
@@ -40,25 +39,25 @@ const Features = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {features.map((feature, index) => {
-           
+
             return (
-              <Card 
+              <div
                 key={feature.title}
-                className="border-border hover:border-primary transition-all duration-300 hover:shadow-soft animate-fade-up"
+                className="rounded-lg border border-border bg-card text-card-foreground shadow-sm hover:border-primary transition-all duration-300 hover:shadow-soft animate-fade-up p-6"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <CardHeader>
+                <div className="flex flex-col space-y-1.5 mb-4">
                   <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4`}>
                     <feature.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
-                  <CardTitle className="text-2xl">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">
+                  <h3 className="text-2xl font-semibold leading-none tracking-tight">{feature.title}</h3>
+                </div>
+                <div>
+                  <p className="text-base text-muted-foreground">
                     {feature.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+                  </p>
+                </div>
+              </div>
             );
           })}
         </div>
