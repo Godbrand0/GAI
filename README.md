@@ -1,82 +1,275 @@
-GAI			
-===
+# GAI - Frontend Multilingual Chat Application
 
-> **status: Development (Heavy on Frontend, Backend and Machine Learning)**
+A real-time chat application frontend that enables seamless communication between Nigerian languages (English, Yoruba, Igbo, Hausa, and Pidgin) with advanced speech recognition and translation capabilities.
 
-Build with AI: Language Translator for Nigerian Local Languages, extensible into application (Cloud, Native and Embedded or Extension).
+## Features
 
-Rationale
----------
+### 🎤 Speech Recognition & Voice Input
+- **Real-time Speech Recognition**: Supports English, Yoruba, Igbo, Hausa, and Nigerian Pidgin using Web Speech API
+- **Animated Microphone Interface**: Visual feedback with waveform visualization and ripple effects
+- **Voice Activity Detection**: Automatic start/stop based on speech detection
+- **Confidence Scoring**: Real-time confidence levels for recognized speech
 
-This is to ensure bi-lateral communication regardless of the language people use to speak to each other during a conversation, conference, meeting, thereby reducing the need to learn certain languages which then hinders communication, since we are in the digital world.
+### 💬 Chat Interface
+- **Real-time Messaging**: WebSocket-based instant communication
+- **Message History**: Persistent chat storage using localStorage
+- **Translation Toggle**: Show/hide translations as needed
+- **Voice Synthesis**: Text-to-speech for translated messages
 
-Use-Case
---------
+### 🎨 User Experience
+- **Responsive Design**: Works seamlessly on desktop and mobile
+- **Real-time Captions**: Live captioning with wavy graphics
+- **Language Settings**: Customizable source and target languages
+- **Error Handling**: Comprehensive error recovery and user guidance
 
-1. Chatting Application extensible into other applications (Cloud, Native, Desktop, Mobile) for real-time involvement and communication; This makes it standalone and extensible into other multi-media voice, text and video calling / chatting applications as an extension.
+### 🔄 Translation Pipeline
+- **Multi-language Support**: Translation between 5 Nigerian languages
+- **Real-time Translation**: Instant translation as you speak or type
+- **Language Detection**: Automatic language identification
+- **Context-aware Translation**: Maintains conversation context
 
-2. To-Be-Decided (TBD).
+## Frontend Architecture
 
-Core Components of the Use Case: Extensible Chatting Application (Language_Chatting)
------------------------------------------------------------------------------------
-1. Chat Interface: Users are enabled with the ability to speak into the application in their source language (use case: Nigerian Yoruba), the interface is seamless enough to provide real-time feedback, such as animated microphones that pops up, and wavy-graphics that shows the user is speaking, with captions of what the user says in real-time into the application.
+### Technology Stack
+- **React 18**: Modern React with hooks
+- **TypeScript**: Type-safe development
+- **Tailwind CSS**: Utility-first styling
+- **Vite**: Fast development and building
 
-2. Model Pipeline (Automated, Embedded and Offline): The model is embedded into the application, and this makes it work in par to the local server built into the application as well. The speech input of the user is received (first, listened too by the chat-system, then passed to this pipeline). The user is sending a message or communicating to another user of the chat application. The following components of the model pipeline make this process complete:
+### Key Components
 
-2.1. Settings of users: This component handles the settings and preferences of the user, which the model pipeline recognizes, and stores for all future communication and workload, such as the user's preferred language when speaking so the model can understand what the user is saying, and the user's preferred target language when receiving a voice message. The target language could be another language the user wants the model to listen for and process, regardless of what the language the message of the sender is.
+#### VoiceInput Component
+- Animated microphone button with visual feedback
+- Real-time waveform visualization
+- Speech recognition integration
+- Error handling and retry logic
 
-2.2. Language Translation: This is the core of the model, and the reason we have collected datasets, the language translator changes the source language of the speaker with all of the captions generated to the desired target language of the receiver, in real time fostering clear communication, based off preferences.
+#### RealTimeCaption Component
+- Live caption display with wavy graphics
+- Language indicators and confidence scores
+- Smooth animations and transitions
+- Timestamp display
 
-2.3. Closed Captioning: This is handled by the frontend as the user speaks into the chat interface but mostly synchronized with this pipeline to ensure clear communication, accurate translation and efficient captioning of what both user's are saying and translating.
+#### ChatMessage Component
+- Message display with translation support
+- Voice synthesis integration
+- Copy and speak functionality
+- User avatar and metadata
 
-Development Process
--------------------
+#### LanguageSettings Component
+- Comprehensive language preference UI
+- Voice and display settings
+- Settings persistence
+- Real-time configuration updates
 
-1. Collection of Datasets in multiple Nigerian Languages. - 1 day.
+### Custom Hooks
 
-2. Activation of APIs (provided by Google AI for Chrome Browsers). - 1 day.
+#### useSpeechRecognition
+- Web Speech API integration
+- Nigerian language support
+- Error handling and recovery
+- Real-time transcript processing
 
-3. Building of Frontend, landing page and core components for the web (cloud) - 1 day.
- 
-4. Parallel development of server, api handlers and model pipelines. - 1.5 days.
+#### useWebSocket
+- WebSocket connection management
+- Automatic reconnection logic
+- Message queuing and handling
+- Performance monitoring
 
-5. Training of Models to work with the APIs provided and datasets collected. - 2 days.
-6. Final Endpoint developments. - 2 days.
-   
-7. Integration with Frontend. - 1 day.
-8. Delivery. - same day (before 20th)
+#### usePerformanceOptimization
+- FPS monitoring and optimization
+- Memory usage tracking
+- Network latency measurement
+- Debouncing and throttling utilities
 
-9. Extras __(1. Mobile Application)__ - Before 20th.
+## Installation
 
-10. Extras __(2. Extension)__ - Before 20th.
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+- Modern web browser (Chrome, Firefox, Safari)
 
-11. Extras __(3. Advanced Pipeline Fine-Tuning with more nigerian language datasets)__ - After the 20th, before the 23rd.  
+### Setup
 
-Application Instructions
-------------------------
+1. **Clone the repository**
+```bash
+git clone <repository-url>
+cd GAI
+```
 
-1.) 0
+2. **Install frontend dependencies**
+```bash
+cd frontend
+npm install
+```
 
-2.) 1
+3. **Start the development server**
+```bash
+npm run dev
+```
 
-3.) 2
+4. **Access the application**
+- Frontend: http://localhost:5173
 
-4.) 3
+## Usage
 
-5.) 4
+### Basic Chat
+1. Open the application in your browser
+2. Allow microphone access when prompted
+3. Select your preferred source and target languages
+4. Click the microphone button or type to send messages
+5. Messages are processed for translation
 
-6.) 5
+### Voice Input
+1. Click the microphone button to start speaking
+2. See real-time captions as you speak
+3. Release the button or stop speaking to process the message
+4. View the translated response
 
-7.) 6
+### Settings
+1. Click the Language Settings button
+2. Configure your source and target languages
+3. Enable/disable voice output and captions
+4. Settings are automatically saved locally
 
-8.) 7
+## API Integration
 
-9.) 8
+The frontend is designed to connect to a backend WebSocket server for:
+- Real-time messaging
+- Speech processing
+- Translation services
+- User settings management
 
-10.) 9
+### WebSocket Events
 
-License
--------
+#### Client to Server
+- `join_room`: Join a chat room
+- `leave_room`: Leave a chat room
+- `chat_message`: Send a message
+- `speech_to_text`: Convert speech to text
+- `translate_text`: Translate text
+- `update_settings`: Update user settings
 
+#### Server to Client
+- `connection`: Connection established
+- `room_joined`: Successfully joined room
+- `chat_message`: Received message
+- `speech_recognition_result`: Speech recognition result
+- `translation_result`: Translation result
+- `settings_updated`: Settings confirmation
 
-GAI Licensed.
+## Supported Languages
+
+| Language | Code | Speech Recognition | Translation |
+|-----------|-------|-------------------|-------------|
+| English | en | Full Support | Full Support |
+| Yoruba | yo | Full Support | Full Support |
+| Igbo | ig | Full Support | Full Support |
+| Hausa | ha | Full Support | Full Support |
+| Nigerian Pidgin | pcm | Full Support | Full Support |
+
+## Performance Features
+
+### Frontend Optimizations
+- **Debouncing**: Prevent excessive API calls
+- **Throttling**: Limit animation frame updates
+- **Memory Management**: Automatic cleanup and garbage collection
+- **Lazy Loading**: Components loaded on demand
+- **Error Boundaries**: Prevent crashes and provide recovery
+
+### Monitoring
+- FPS monitoring for smooth animations
+- Memory usage tracking
+- Network latency measurement
+- Automatic performance optimization
+
+## Error Handling
+
+### Speech Recognition Errors
+- **Permission Denied**: Guides user to enable microphone
+- **Network Issues**: Automatic retry with exponential backoff
+- **Service Unavailable**: Fallback to text input
+- **Hardware Issues**: Microphone troubleshooting guidance
+
+### Connection Errors
+- **WebSocket Failures**: Automatic reconnection
+- **Network Timeouts**: Graceful degradation
+- **Server Errors**: User-friendly error messages
+- **Recovery Logic**: Automatic state restoration
+
+## Project Structure
+
+```
+frontend/
+├── src/
+│   ├── components/          # React components
+│   │   ├── VoiceInput.tsx
+│   │   ├── RealTimeCaption.tsx
+│   │   ├── ChatMessage.tsx
+│   │   ├── LanguageSettings.tsx
+│   │   └── ErrorBoundary.tsx
+│   ├── hooks/              # Custom hooks
+│   │   ├── useSpeechRecognition.ts
+│   │   ├── useWebSocket.ts
+│   │   └── usePerformanceOptimization.ts
+│   ├── lib/               # Utilities
+│   │   └── utils.ts
+│   └── pages/             # Page components
+│       ├── Chat.tsx
+│       ├── Index.tsx
+│       └── NotFound.tsx
+├── public/                # Static assets
+├── package.json
+└── vite.config.ts
+```
+
+## Browser Compatibility
+
+### Supported Browsers
+- **Chrome**: 25+ (Full support)
+- **Firefox**: 44+ (Full support)
+- **Safari**: 14.1+ (Full support)
+- **Edge**: 79+ (Full support)
+
+### Required Features
+- Web Speech API
+- WebSocket support
+- ES6+ JavaScript support
+- CSS Grid and Flexbox
+
+## Development
+
+### Adding New Languages
+1. Update language mappings in `src/lib/utils.ts`
+2. Add language codes to speech recognition
+3. Update UI components for new language
+4. Test with sample translations
+
+### Performance Monitoring
+- Use React DevTools for component profiling
+- Monitor browser console for performance warnings
+- Check network tab for WebSocket activity
+- Use Performance tab for runtime analysis
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## License
+
+MIT License - see LICENSE file for details
+
+## Support
+
+For frontend issues and questions:
+- Create an issue on GitHub
+- Check browser compatibility
+- Review the component documentation
+
+---
+
+**GAI Frontend** - Breaking language barriers with AI-powered communication
